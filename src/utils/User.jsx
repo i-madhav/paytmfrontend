@@ -6,7 +6,7 @@ export const Users = () => {
     // Replace with backend call
     const [usersData, setUsers] = useState([]);
     const [search, setSearch] = useState("")
-
+    console.log(usersData);
     useEffect(() => {
         const timer = setTimeout(() => {
             userSearch();
@@ -48,7 +48,7 @@ export const Users = () => {
 
 function User({ user }) {
     const [visible, setVisible] = useState(false);
-    return visible ? <SendMoney /> : <div className="flex justify-between  w-[95%]">
+    return visible ? <SendMoney firstName={user.firstName} lastName={user.lastName} onClick={() => setVisible(!visible)} id={user._id}/> : <div className="flex justify-between  w-[95%]">
         <div className="flex">
             <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
@@ -63,7 +63,7 @@ function User({ user }) {
         </div>
 
         <div className="flex flex-col justify-center h-full">
-            <Button text={"Send Money"} onClick={() => setVisible(!visible)} />
+            <Button text={"Send Money"} onClick={() => setVisible(!visible)}/>
         </div>
     </div>
 }
