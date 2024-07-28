@@ -5,7 +5,6 @@ import React, { useState , useEffect } from 'react'
 
 const DashBoard = () => {
     const [balance, setBalance] = useState("");
-    console.log(balance);
     useEffect(() => {
         handleGetBalance();
     }, []);
