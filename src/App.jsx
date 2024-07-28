@@ -5,6 +5,7 @@ import SignIn from './components/SignIn';
 import LandingPage from './components/LandingPage';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import DashBoard from './components/DashBoard';
 
 const appRouter = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const appRouter = createBrowserRouter([
   {
     path: "/signin",
     element: <SignIn />
+  },
+  {
+    path:"/dashboard",
+    element:<DashBoard/>
   }
 ])
 

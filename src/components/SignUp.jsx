@@ -3,8 +3,7 @@ import Heading from '../utils/Heading'
 import InputBox from '../utils/InputBox'
 import Button from '../utils/Button'
 import BottomWarning from '../utils/BottomWarning'
-import { useDispatch } from 'react-redux'
-import { storeuser } from '../storeslice/userslice'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
     const [userName, setUserName] = useState("");
@@ -12,7 +11,6 @@ const SignUp = () => {
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
 
-    const dispatch = useDispatch();
 
     async function handlesignup() {
         try {
@@ -33,13 +31,10 @@ const SignUp = () => {
                 window.location.href = "/signin";
                 console.log("sigup successfully");
             }
-
-            const data = await response.json();
-            if(data){
-                dispatch(storeuser(data.data));
-            }
-            console.log(data);
-
+                setUserName("")
+                setFirstName("")
+                setLastName("")
+                setPassword("")
 
         } catch (error) {
             console.log("Unable to signup!");
